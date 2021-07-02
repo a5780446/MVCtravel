@@ -1,0 +1,54 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>新竹沙漠?</title>
+</head>
+<body>
+    <h2>新竹荒漠</h2>
+    <hr/>
+    <table border="0" cellspacing="0" cellpadding="10">
+        <tr bgcolor="#a6b141" aligin="center">
+            <th>編號</th>
+            <th>名稱</th>
+            <th>地址</th>
+        </tr>
+        @{
+            int i = 0;
+            string imgname, color;
+        }
+        @foreach (var item in Model)
+        {
+            imgname = item.id + ".jpg";
+            if (i % 2 == 0)
+            {
+                color = "aliceblue";
+            }
+            else
+            {
+                color = "#edf8cf";
+            }
+            i++;
+            <tr align="center" bgcolor="@color">
+                <td>@item.id</td>
+                <td>
+                    @item.name<br />
+                    <img src="~/img/@imgname" width="150" />
+                </td>
+                <td>@item.addr</td>
+                <td>
+                    <a href="https://www.google.com.tw/maps/dir//@item.addr">查詢地址</a>
+                </td>
+            </tr>
+        }
+        </table>
+    <div> 
+    </div>
+</body>
+</html>
